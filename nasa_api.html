@@ -12,10 +12,10 @@
 <script>
    $.ajax({
    url:"https://api.nasa.gov/techport/api/projects/17792?api_key=jVQ018aAXegqAo7CE1WxklvjiHlpcswlQoHB3piO",
-   success:function(returnJSON){
-   img = document.getElementById("photo-of-the-day");
-   console.log(returnJSON);
-   img.src = returnJSON.img_src;
-   }
+    success:function(returnJSON){
+        img = document.getElementById("photo-of-the-day");
+        console.log(returnJSON);
+        img.src = returnJSON.img_src;
+        }
    })
 </script>
