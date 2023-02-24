@@ -14,7 +14,7 @@ function setup() {
 
         if (i%9 === 0) {
             color = "#1D299F"
-        } else if (i%18 === 0) {
+        } else if (i%19 === 0) {
             color = "#98312C"
         } else {
             color = "#FFFFFF"
@@ -40,7 +40,8 @@ function draw() {
 
             data[i].x = random(displayWidth);
             data[i].y = random(displayHeight);
-            data.push({"x": random(displayWidth), "y": random(displayHeight), "color": "#FFFFFF"})
+            data[i].radius = random(2)
+            // data.push({"x": random(displayWidth), "y": random(displayHeight), "color": "#FFFFFF", "radius": random(2)})
         }
         stroke(data[i].color);
         rect(data[i].x, data[i].y, data[i].radius, data[i].radius)
