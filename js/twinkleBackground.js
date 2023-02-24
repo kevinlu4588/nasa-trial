@@ -1,4 +1,4 @@
-let fr = 10;
+let fr = 3;
 
 let data = []
 
@@ -20,9 +20,13 @@ function setup() {
             color = "#FFFFFF"
         }
 
-        let x = random(displayWidth);
-        let y = random(displayHeight);
-        data.push({"x": x, "y": y, "color": color})
+        if (i%12 === 0) {
+            radius = 2;
+        } else {
+            radius = 1;
+        }
+
+        data.push({"x": random(displayWidth), "y": random(displayHeight), "color": color, "radius": radius})
     }
     console.log(data)
 }
@@ -31,7 +35,14 @@ function draw() {
 
     background(0);
     for (let i = 0; i < nTwinkle; i++ ) {
+
+        if (i%7===0) {
+
+            data[i].x = random(displayWidth);
+            data[i].y = random(displayHeight);
+            data.push({"x": random(displayWidth), "y": random(displayHeight), "color": "#FFFFFF"})
+        }
         stroke(data[i].color);
-        rect(data[i].x, data[i].y, 1, 1)
+        rect(data[i].x, data[i].y, data[i].radius, data[i].radius)
     }
 }
