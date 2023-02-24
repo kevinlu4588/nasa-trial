@@ -25,18 +25,21 @@
         <link rel="stylesheet" type="text/css" href="./css/styles.css">
         
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/p5@1.6.0/lib/p5.js"></script>
+        <script src="./js/twinkleBackground.js"></script>
    </head>
       <header>
          <h1>Title</h1>
       </header>
       <body>
+         <div id="twinkle"></div>
          <div id="output">
             <img id="photo-of-the-day"/>
          </div>
          <script>
             $.ajax({
             url:"https://api.nasa.gov/techport/api/projects/17792?api_key=jVQ018aAXegqAo7CE1WxklvjiHlpcswlQoHB3piO",
-            success:function(returnJSON){
+            success:function(returnJSON) {
                img = document.getElementById("photo-of-the-day");
                console.log(returnJSON);
                img.src = returnJSON.img_src;
