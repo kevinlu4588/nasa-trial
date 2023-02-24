@@ -17,26 +17,28 @@
         <meta property="og:locale" content="en" />
         <meta property="og:description" content="" />
         <meta property="og:image" content="" />
-        <title>Nasa API Test</title>
+        <title>Galaxy News</title>
 
         <link rel="stylesheet" type="text/css" href="./css/styles.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
    </head>
+      <header>
+         <h1>Title</h1>
+      </header>
       <body>
-      <div id="output">
-         <img id="photo-of-the-day"/>
-         <h1 id="title">
-         </h1>
-      </div>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-      <script>
-         $.ajax({
-         url:"https://api.nasa.gov/techport/api/projects/17792?api_key=jVQ018aAXegqAo7CE1WxklvjiHlpcswlQoHB3piO",
-         success:function(returnJSON){
-            img = document.getElementById("photo-of-the-day");
-            console.log(returnJSON);
-            img.src = returnJSON.img_src;
-            }
-         })
-      </script>
+         <div id="output">
+            <img id="photo-of-the-day"/>
+         </div>
+         <script>
+            $.ajax({
+            url:"https://api.nasa.gov/techport/api/projects/17792?api_key=jVQ018aAXegqAo7CE1WxklvjiHlpcswlQoHB3piO",
+            success:function(returnJSON){
+               img = document.getElementById("photo-of-the-day");
+               console.log(returnJSON);
+               img.src = returnJSON.img_src;
+               }
+            })
+         </script>
    </body>
+   <footer></footer>
 </html>
