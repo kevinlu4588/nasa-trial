@@ -1,21 +1,40 @@
 <!DOCTYPE html>
-<title>
-   Nasa API Test
-</title>
-<div id="output">
-   <img id="photo-of-the-day">
-   </img>
-   <h1 id="title">
-   </h1>
-</div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-<script>
-   $.ajax({
-   url:"https://api.nasa.gov/techport/api/projects/17792?api_key=jVQ018aAXegqAo7CE1WxklvjiHlpcswlQoHB3piO",
-    success:function(returnJSON){
-        img = document.getElementById("photo-of-the-day");
-        console.log(returnJSON);
-        img.src = returnJSON.img_src;
-        }
-   })
-</script>
+<html>
+   <head>
+      <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <meta name="description" content="">
+        <meta name="keywords" content="space, nasa">
+        <meta name="author" content="Joli Holmes & Kevin Lu">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!-- TODO update title -->
+        <meta property="og:title" content="" />
+        <meta property="og:type" content="article" />
+        <!-- This link will not be published as live until we get the go ahead from NEIP and Paul -->
+        <meta property="og:url" content="" /> 
+        <meta property="og:locale" content="en" />
+        <meta property="og:description" content="" />
+        <meta property="og:image" content="" />
+   </head>
+   <title>
+      Nasa API Test
+   </title>
+   <div id="output">
+      <img id="photo-of-the-day"/>
+      <h1 id="title">
+      </h1>
+   </div>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+   <script>
+      $.ajax({
+      url:"https://api.nasa.gov/techport/api/projects/17792?api_key=jVQ018aAXegqAo7CE1WxklvjiHlpcswlQoHB3piO",
+      success:function(returnJSON){
+         img = document.getElementById("photo-of-the-day");
+         console.log(returnJSON);
+         img.src = returnJSON.img_src;
+         }
+      })
+   </script>
+</html>
