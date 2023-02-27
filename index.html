@@ -50,15 +50,14 @@
          <script>
             
 // Create the application helper and add its render target to the page
-let app = new PIXI.Application({ width: 640, height: 360 });
+let app = new PIXI.Application({ width: 1800, height: 1800 });
 document.body.appendChild(app.view);
 
 // Create window frame
 let frame = new PIXI.Graphics();
 frame.beginFill(0x666666);
 frame.lineStyle({ color: 0xffffff, width: 4, alignment: 0 });
-frame.drawRect(0, 0, 208, 208);
-frame.position.set(320 - 104, 180 - 104);
+frame.drawRect(0, 0, 1800, 1800);
 app.stage.addChild(frame);
 
 // Create a graphics object to define our mask
@@ -75,9 +74,20 @@ maskContainer.mask = mask;
 // Add the mask as a child, so that the mask is positioned relative to its parent
 maskContainer.addChild(mask);
 // Offset by the window's frame width
-maskContainer.position.set(4,4);
+maskContainer.position.set(4,);
 // And add the container to the window!
 frame.addChild(maskContainer);
+
+const mouseCoords = { x: 0, y: 0 };
+app.stage.interactive = true;
+app.stage.hitArea = app.screen;
+app.stage.on('mousemove', (event) => {
+    mouseCoords.x = event.global.x;
+    mouseCoords.y = event.global.y;
+    console.log("moving");
+    mask.x = mouseCoords.x - 100;
+    mask.y = mouseCoords.y - 100;
+});
 
 // Create contents for the masked container
 let text = new PIXI.Text(
