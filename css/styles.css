@@ -16,7 +16,7 @@ h1 {
     color: white;
     text-transform: uppercase;
     text-align: center;
-    margin: 20px auto;
+    margin: 40px auto;
     max-width: 55%;
     z-index: 1;
     position: absolute;
@@ -33,7 +33,7 @@ article {
     z-index: 1;
     position: absolute;
     left: 25%;
-    top: 10%;
+    top: 15%;
 }
 
 #photo-of-the-day {

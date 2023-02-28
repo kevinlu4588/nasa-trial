@@ -5,7 +5,7 @@ let data = []
 let nTwinkle = 120;
 
 function setup() {
-    let c = createCanvas(displayWidth, displayHeight);
+    let c = createCanvas(displayWidth, displayHeight*1.5);
     c.parent("twinkle");
     frameRate(fr);
 
@@ -27,7 +27,7 @@ function setup() {
             radius = 1;
         }
 
-        data.push({"x": random(displayWidth), "y": random(displayHeight), "color": color, "radius": radius})
+        data.push({"x": random(displayWidth), "y": random(displayHeight*1.5), "color": color, "radius": radius})
     }
     console.log(data)
 }
