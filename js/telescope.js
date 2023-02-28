@@ -7,7 +7,7 @@ const radius = 100;
 // The blur amount
 const blurSize = 32;
 
-PIXI.Assets.load('examples/assets/bg_grass.jpg').then((grassTexture) => {
+PIXI.Assets.load('/assets/bg_grass.png').then((grassTexture) => {
     const background = new PIXI.Sprite(grassTexture);
     app.stage.addChild(background);
     background.width = app.screen.width;
