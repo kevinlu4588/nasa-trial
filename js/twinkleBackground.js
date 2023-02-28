@@ -5,7 +5,8 @@ let data = []
 let nTwinkle = 120;
 
 function setup() {
-    createCanvas(displayWidth, displayHeight);
+    let c = createCanvas(displayWidth, displayHeight);
+    c.parent("twinkle");
     frameRate(fr);
 
     for (let i = 0; i < nTwinkle; i++ ) {
