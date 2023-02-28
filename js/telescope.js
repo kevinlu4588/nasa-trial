@@ -8,6 +8,17 @@ const radius = 100;
 
 // The blur amount
 const blurSize = 32;
+/*
+let imgURL;
+$.ajax({
+    url:"https://api.nasa.gov/planetary/apod?api_key=jVQ018aAXegqAo7CE1WxklvjiHlpcswlQoHB3piO",
+    success:function(returnJSON) {
+        imgURL = returnJSON.url;
+
+       }
+});
+const texture = PIXI.Texture.from(imgURL);
+*/
 
 PIXI.Assets.load('/assets/ZodiacalPlanets_Merzlyakov_960.jpg').then((grassTexture) => {
     const background = new PIXI.Sprite(grassTexture);
