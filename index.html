@@ -41,16 +41,7 @@
                <img id="photo-of-the-day"/>
             </div>
          </article>
-         <script>
-            $.ajax({
-            url:"https://api.nasa.gov/planetary/apod?api_key=jVQ018aAXegqAo7CE1WxklvjiHlpcswlQoHB3piO",
-            success:function(returnJSON) {
-               img = document.getElementById("photo-of-the-day");
-               console.log(returnJSON);
-               img.src = returnJSON.url;
-               }
-            })
-         </script>
+         <script src="./js/nasaImageApi.js"></script>
          <script src="./js/twinkleBackground.js"></script>
          <!-- <script src="./js/telescope.js"></script> -->
    </body>
