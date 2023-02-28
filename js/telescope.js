@@ -1,5 +1,7 @@
+//Adapted from https://pixijs.io/examples/#/masks/filter.js
+
 const app = new PIXI.Application();
-document.body.appendChild(app.view);
+document.getElementById("telescope").appendChild(app.view);
 
 // Inner radius of the circle
 const radius = 100;
@@ -7,7 +9,7 @@ const radius = 100;
 // The blur amount
 const blurSize = 32;
 
-PIXI.Assets.load('examples/assets/bg_grass.jpg').then((grassTexture) => {
+PIXI.Assets.load('/assets/ZodiacalPlanets_Merzlyakov_960.jpg').then((grassTexture) => {
     const background = new PIXI.Sprite(grassTexture);
     app.stage.addChild(background);
     background.width = app.screen.width;

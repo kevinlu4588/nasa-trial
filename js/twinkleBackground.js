@@ -12,6 +12,7 @@ function setup() {
     for (let i = 0; i < nTwinkle; i++ ) {
 
         let color;
+        let radius;
 
         if (i%9 === 0) {
             color = "#1D299F"

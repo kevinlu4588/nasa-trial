@@ -12,21 +12,17 @@
         <!-- TODO update title -->
         <meta property="og:title" content="" />
         <meta property="og:type" content="article" />
-        <!-- This link will not be published as live until we get the go ahead from NEIP and Paul -->
         <meta property="og:url" content="" /> 
         <meta property="og:locale" content="en" />
         <meta property="og:description" content="" />
         <meta property="og:image" content="" />
         <title>Galaxy News</title>
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,300;1,400;1,500;1,600;1,700&family=Nunito:wght@200&display=swap" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="./css/styles.css">
         
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/p5@1.6.0/lib/p5.js"></script>
-        <script src="./js/twinkleBackground.js"></script>
+        <script src="https://unpkg.com/pixi.js@7.x/dist/pixi.min.js"></script>
    </head>
       <header>
          <h1>Title</h1>
@@ -40,17 +36,11 @@
             <div class="img-container">
                <img id="photo-of-the-day"/>
             </div>
+            <div id="telescope"></div>
          </article>
-         <script>
-            $.ajax({
-            url:"https://api.nasa.gov/planetary/apod?api_key=jVQ018aAXegqAo7CE1WxklvjiHlpcswlQoHB3piO",
-            success:function(returnJSON) {
-               img = document.getElementById("photo-of-the-day");
-               console.log(returnJSON);
-               img.src = returnJSON.url;
-               }
-            })
-         </script>
+         <script src="./js/nasaImageApi.js"></script>
+         <script src="./js/twinkleBackground.js"></script>
+         <script src="./js/telescope.js"></script>
    </body>
    <footer></footer>
 </html>
