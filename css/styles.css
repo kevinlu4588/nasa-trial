@@ -40,3 +40,7 @@ article {
     z-index: 10;
     max-height: 80vh;
 }
+
+.img-container {
+    text-align: center;
+}
