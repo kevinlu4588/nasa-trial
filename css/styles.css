@@ -23,6 +23,10 @@ h1 {
     left: 50%;
 }
 
+p {
+    line-height: 140%;
+}
+
 canvas {
     z-index: -1;
 }

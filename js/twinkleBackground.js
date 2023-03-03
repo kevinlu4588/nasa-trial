@@ -15,37 +15,36 @@ function setup() {
         let radius;
 
         if (i%9 === 0) {
-            color = "#1D299F"
+            color = "#F0CCAE"
         } else if (i%19 === 0) {
-            color = "#98312C"
+            color = "#A7C3FD"
         } else {
             color = "#FFFFFF"
         }
 
         if (i%12 === 0) {
-            radius = 2;
+            radius = random(4);
         } else {
-            radius = 1;
+            radius = random(2);
         }
 
         data.push({"x": random(displayWidth), "y": random(displayHeight*1.5), "color": color, "radius": radius})
     }
-    console.log(data)
 }
 
 function draw() {
 
-    background(0);
+    background("#02030E");
     for (let i = 0; i < nTwinkle; i++ ) {
 
         if (i%7===0) {
 
             data[i].x = random(displayWidth);
             data[i].y = random(displayHeight);
-            data[i].radius = random(2)
+            data[i].radius = random(4)
             // data.push({"x": random(displayWidth), "y": random(displayHeight), "color": "#FFFFFF", "radius": random(2)})
         }
         stroke(data[i].color);
-        rect(data[i].x, data[i].y, data[i].radius, data[i].radius)
+        ellipse(data[i].x, data[i].y, data[i].radius, data[i].radius)
     }
 }

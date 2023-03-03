@@ -20,8 +20,8 @@ $.ajax({
 const texture = PIXI.Texture.from(imgURL);
 */
 
-PIXI.Assets.load('/assets/ZodiacalPlanets_Merzlyakov_960.jpg').then((grassTexture) => {
-    const background = new PIXI.Sprite(grassTexture);
+PIXI.Assets.load('/assets/star_chart.png').then((stars) => {
+    const background = new PIXI.Sprite(stars);
     app.stage.addChild(background);
     background.width = app.screen.width;
     background.height = app.screen.height;
