@@ -89,16 +89,6 @@ const constellations = [
     {"abbr": "lac", "greekName": "Lacerta", "commonName": "the Lizard"}
 ];
 
-d3.selectAll(".dropdown-option").on("click", function(d) {
-    let dropdown = d3.select(this).property("value");
-    console.log(dropdown)
-})
-
-// for (let i = 0; i < constellations.length; i++) {
-
-//     <option class="dropdown-option" value="javascript">JavaScript</option>
-// }
-
 const returnConstOpions = () => {
 
     let opts = "";
@@ -151,5 +141,10 @@ function fetchStarChart() {
 }
 
 returnConstOpions();
+
+d3.selectAll(".dropdown-option").on("click", function(d) {
+    let dropdown = d3.select(this).property("value");
+    console.log(dropdown)
+})
 // fetchStarChart();
 
