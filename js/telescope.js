@@ -7,7 +7,7 @@ document.getElementById("telescope").appendChild(app.view);
 const radius = 100;
 
 // The blur amount
-const blurSize = 32;
+const blurSize = 5;
 /*
 let imgURL;
 $.ajax({
@@ -25,6 +25,7 @@ PIXI.Assets.load('/assets/star_chart.png').then((stars) => {
     app.stage.addChild(background);
     background.width = app.screen.width;
     background.height = app.screen.height;
+    // background.beginFill("#02030E")
 
     const circle = new PIXI.Graphics()
         .beginFill(0xFF0000)
@@ -32,7 +33,7 @@ PIXI.Assets.load('/assets/star_chart.png').then((stars) => {
         .endFill();
     circle.filters = [new PIXI.filters.BlurFilter(blurSize)];
 
-    const bounds = new PIXI.Rectangle(0, 0, (radius + blurSize) * 2, (radius + blurSize) * 2);
+    const bounds = new PIXI.Circle(0, 0, (radius + blurSize) * 2, (radius + blurSize) * 2);
     const texture = app.renderer.generateTexture(circle, PIXI.SCALE_MODES.NEAREST, 1, bounds);
     const focus = new PIXI.Sprite(texture);
 

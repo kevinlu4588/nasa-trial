@@ -23,7 +23,7 @@ function setup() {
         }
 
         if (i%12 === 0) {
-            radius = random(4);
+            radius = random(6);
         } else {
             radius = random(2);
         }
@@ -41,7 +41,7 @@ function draw() {
 
             data[i].x = random(displayWidth);
             data[i].y = random(displayHeight);
-            data[i].radius = random(4)
+            data[i].radius = random(6)
             // data.push({"x": random(displayWidth), "y": random(displayHeight), "color": "#FFFFFF", "radius": random(2)})
         }
         stroke(data[i].color);
