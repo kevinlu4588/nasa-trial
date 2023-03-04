@@ -1,4 +1,4 @@
-#constellation {
+.dropdown {
     background-color: #A7C3FD;
     padding: 10px 20px;
     font-weight: 600;
@@ -7,7 +7,7 @@
     border: 2px solid #A7C3FD;
 }
 
-#constellation:hover {
+.dropdown:hover {
     background-color: #6a83b8;
     border: 2px solid #A7C3FD;
 }
