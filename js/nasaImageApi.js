@@ -94,12 +94,19 @@ d3.selectAll(".dropdown-option").on("click", function(d) {
     console.log(dropdown)
 })
 
+// for (let i = 0; i < constellations.length; i++) {
+
+//     <option class="dropdown-option" value="javascript">JavaScript</option>
+// }
+
 const returnConstOpions = () => {
 
-    let opts = constellations
-      .map((item, index) => (
-        `<option class="dropdown-option" value=${item.abbr}> ${item.commonName} (${item.greekName})</option>`
-    ));
+    let opts = "";
+
+    for (let item of constellations) {
+        opts += `<option class="dropdown-option" value=${item.abbr}> ${item.commonName} (${item.greekName})</option>`;
+    }
+  
     document.getElementById("constellation").innerHTML = opts;
 };
 
