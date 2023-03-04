@@ -23,6 +23,11 @@ h1 {
     left: 50%;
 }
 
+h3 {
+    color: rgb(230, 230, 230);
+    font-variant: small-caps;
+}
+
 p {
     line-height: 143%;
 }
