@@ -1,10 +1,6 @@
 var x = document.getElementById("demo");
 let latitude, longitude;
 
-function onReady() { 
-   getLocation();
-}
-
 function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showPosition);
@@ -21,8 +17,13 @@ function showPosition(position) {
     longitude = position.coords.longitude;
 }
 
-if (document.readyState !== 'loading') { 
-	setTimeout(onReady, 0); 
-} else { 
-	document.addEventListener('DOMContentLoaded', onReady) 
+function returnLocation() {
+  if (document.readyState !== 'loading') { 
+    setTimeout(getLocation, 0); 
+  } else { 
+    document.addEventListener('DOMContentLoaded', getLocation) 
+  }
+  return {"latitude": latitude, "longitude": longitude}
 }
+
+returnLocation();
