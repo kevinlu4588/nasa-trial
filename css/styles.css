@@ -51,4 +51,5 @@ article {
 
 canvas {
     border: 2px solid #050823;
+    position: absolute;
 }
