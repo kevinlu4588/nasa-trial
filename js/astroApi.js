@@ -96,7 +96,20 @@ const constellations = [
     {"abbr": "lac", "greekName": "Lacerta", "commonName": "the Lizard"}
 ];
 
-let dropdown = constellations[0].abbr;
+let view = {
+    "type": "constellation",
+    "parameters": {
+        "constellation": constellations[0].abbr
+    }
+}
+
+// global dispatch object -----------------------
+const dispatch = d3.dispatch("constellation-change");
+
+// dispatch event handlers
+dispatch.on("constellation-change", () => {
+    fetchStarChart();
+});
 
 // Automatically generate the options from data rather than hardcoding
 const returnConstOpions = () => {
@@ -106,25 +119,25 @@ const returnConstOpions = () => {
     for (let item of constellations) {
         opts += `<option class="dropdown-option" value=${item.abbr}> ${item.commonName} (${item.greekName})</option>`;
     }
-  
+
     document.getElementById("constellation").innerHTML = opts;
 };
 
 // Event listener for the constellation drop-down
 function constellationListener() {
     d3.selectAll(".dropdown-option").on("click", function(d) {
-        dropdown = d3.select(this).property("value");
-        console.log(dropdown)
+        view = {
+            "type": "constellation",
+            "parameters": {
+                "constellation": d3.select(this).property("value")
+            }
+        }
+
+        dispatch.call("constellation-change");
     })
 }
 
-// function fetchBodies() {
-//     const url = "https://api.astronomyapi.com/api/v2/bodies";;
-//     fetch(url, {headers}).
-//     then(response => response.json()).
-//     then(data => console.log(data));
-// }
-
+// Returns todays date formatted for the API
 function updateDate() {
 
     let today = new Date();
@@ -154,22 +167,19 @@ function fetchStarChart() {
                 "longitude": -84.39733,
                 "date": updateDate()
             },
-            "view": {
-                "type": "constellation",
-                "parameters": {
-                    "constellation": dropdown
-            }
-        }
+            "view": view
     }
 
-    fetch(url, {method: "POST", headers, body: JSON.stringify(body)}).
-    then(response => response.json()).
-    then(function(data) { 
-        console.log(data.data.imageUrl)
-    })
+    console.log(body)
+
+    // fetch(url, {method: "POST", headers, body: JSON.stringify(body)}).
+    // then(response => response.json()).
+    // then(function(data) { 
+    //     console.log(data.data.imageUrl)
+    // })
 }
 
 returnConstOpions();
 constellationListener();
 
-// fetchStarChart();
+fetchStarChart();

@@ -28,7 +28,6 @@ function setup() {
 
         data.push({"x": random(displayWidth), "y": random(displayHeight*1.5), "color": color, "radius": radius})
     }
-    console.log(data)
 }
 
 function draw() {
