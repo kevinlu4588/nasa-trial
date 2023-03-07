@@ -172,6 +172,8 @@ export function constellationListener() {
 }
 
 // Star chart API
+
+//TODO: PNG is SLOW TO LOAD ADD A SPINNER
 export function fetchStarChart() {
     const body = {
             "style": "navy",
