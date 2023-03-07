@@ -74,12 +74,14 @@ canvas {
     height: 150vh;
 }
 
-#intro-div {
+.intro {
     opacity: 0;
     animation: fadeOut 5s; 
     position: absolute;
     z-index: 2;
     pointer-events: none;
+    position:relative; 
+    height:200vh
 }
 
 @keyframes fadeOut {
