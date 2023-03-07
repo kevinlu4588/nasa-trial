@@ -179,12 +179,11 @@ export function fetchStarChart() {
             "view": view
     }
 
-    // fetch(url, {method: "POST", headers, body: JSON.stringify(body)}).
-    // then(response => response.json()).
-    // then(function(data) { 
-    //     console.log(data.data.imageUrl)
-    // })
+    fetch(url, {method: "POST", headers, body: JSON.stringify(body)}).
+    then(response => response.json()).
+    then(function(data) { 
+        console.log(data.data.imageUrl)
 
-    console.log(body)
-    Telescope.draw();
+        Telescope.draw(data.data.imageUrl);
+    })
 }
