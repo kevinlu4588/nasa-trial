@@ -55,12 +55,10 @@ article {
 
 canvas {
     border: 2px solid #050823;
-    
 }
 
 #intro-text {
     opacity: 0;
-    font-family: 'Courier New', Courier, monospace;
     font-size: 70px;
     color:#EEEEEE;
     position: absolute; 
@@ -72,6 +70,8 @@ canvas {
 
 #canvas3 {
     opacity: 1;
+    width: 100vw;
+    height: 150vh;
 }
 
 #intro-div {
