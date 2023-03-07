@@ -6,24 +6,20 @@ if (document.readyState !== 'loading') {
  
 function onReady() { 
    getLocation();
-} 
+}
 
 var x = document.getElementById("demo");
-    function getLocation() {
-        console.log("getting location");
-      if (navigator.geolocation) {
-        console.log("has geo");
-        navigator.geolocation.getCurrentPosition(showPosition);
-      } else {
-        x.innerText = "Geolocation is not supported by this browser.";
-      }
-    }
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else {
+    x.innerText = "Geolocation is not supported by this browser.";
+  }
+}
     
-    function showPosition(position) {
-        console.log(x);
-        var x = document.getElementById("demo");
-        console.log(position.coords.latitude);
-        console.log("showing geo");
-        x.innerText = "Latitude: " + position.coords.latitude + "\n"+
-        "Longitude: " + position.coords.longitude;
-    }
+function showPosition(position) {
+    var x = document.getElementById("demo");
+    x.innerText = "Latitude: " + position.coords.latitude + "\n"+
+    "Longitude: " + position.coords.longitude;
+}
