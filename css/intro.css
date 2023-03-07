@@ -1,13 +1,15 @@
 .intro {
     opacity: 0;
     animation: fadeOut 5s; 
-    z-index: 2;
+    z-index: 102;
     position: relative;
 }
 
 #intro-canvas {
     width: 100vw;
     height: 150vh;
+    z-index: -100;
+    animation: fadeOut 5s;
 }
 
 #intro-text {
@@ -31,6 +33,23 @@
 
     100% {
         opacity: 0;
+    }
+}
+
+@keyframes fadeOutCanvas {
+    0% {
+        opacity: 1;
+        z-index: 101;
+    }
+
+    50% {
+        opacity: 1;
+        z-index: 101;
+    }
+
+    100% {
+        opacity: 0;
+        z-index: -100;
     }
 }
 

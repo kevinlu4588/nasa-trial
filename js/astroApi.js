@@ -154,5 +154,5 @@ function fetchStarChart() {
 returnConstOpions();
 constellationListener();
 
-fetchStarChart();
+// fetchStarChart();
 
