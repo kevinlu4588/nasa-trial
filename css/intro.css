@@ -1,0 +1,42 @@
+.intro {
+    opacity: 0;
+    animation: fadeOut 5s; 
+    z-index: 2;
+    pointer-events: none;
+    position: relative;
+}
+
+#intro-canvas {
+    opacity: 1;
+    width: 100vw;
+    height: 150vh;
+}
+
+#intro-text {
+    opacity: 0;
+    font-size: 70px;
+    color:#EEEEEE;
+    position: absolute; 
+    z-index: 1; 
+    left: 25%; 
+    top: 25%;
+    animation: fadeIn 3s;
+}
+
+@keyframes fadeOut {
+    0%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100%{opacity: 0;}
+}
