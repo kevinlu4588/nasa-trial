@@ -1,7 +1,6 @@
 let fr = 3;
 let data = [];
 let nTwinkle = 120;
-console.log("ran")
 
 function setup() {
     let c = createCanvas(displayWidth, displayHeight*1.5);
