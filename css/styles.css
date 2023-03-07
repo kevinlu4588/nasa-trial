@@ -61,53 +61,53 @@ canvas {
 
 #demo{
     font-family:'Courier New', Courier, monospace;
-font-size:20px;
-margin: auto;
-width: 30%;
+    font-size:20px;
+    margin: auto;
+    width: 30%;
 }
+
 #intro-text{
-opacity: 0;
-font-family:'Courier New', Courier, monospace;
-font-size:70px;
-color:#EEEEEE;
-position: absolute; 
-z-index: 1; 
-left: 35vw; 
-top: 20vw; 
-width:50vw; 
-height:20px; 
-animation: fadeIn 3s;
-
+    opacity: 0;
+    font-family:'Courier New', Courier, monospace;
+    font-size:70px;
+    color:#EEEEEE;
+    position: absolute; 
+    z-index: 1; 
+    left: 35vw; 
+    top: 20vw; 
+    width:50vw; 
+    height:20px; 
+    animation: fadeIn 3s;
 }
-#canvas3{
-opacity: 1;
 
+#canvas3{
+    opacity: 1;
 }
 
 #intro-div{
-opacity: 0;
- animation: fadeOut 5s; 
- position: absolute;
-z-index: 2;
-pointer-events: none;
+    opacity: 0;
+    animation: fadeOut 5s; 
+    position: absolute;
+    z-index: 2;
+    pointer-events: none;
 }
 
 @keyframes fadeOut {
-0%{
-    opacity: 1;
-}
-50%{
-    opacity: 1;
-}
-100%{
-    opacity: 0;
-}
+    0%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
 }
 
 @keyframes fadeIn {
-0% { opacity: 0; }
-50% { opacity: 1; }
-100%{opacity: 0;}
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100%{opacity: 0;}
 }
 
 
