@@ -144,8 +144,9 @@ function fetchStarChart() {
     }
     fetch(url, {method: "POST", headers, body: JSON.stringify(body)}).
     then(response => response.json()).
-    then(data => console.log(data)).
-    then(data => document.getElementById("star-chart").src = data.imageUrl)
+    then(data => console.log(data.data.imageUrl))
+    // .
+    then(data => document.getElementById("star-chart").src = data.data.imageUrl)
     //  then(data => console.log(data));
     // img = document.getElementById("star-chart");
     // img.src = data.;
