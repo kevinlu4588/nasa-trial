@@ -2,12 +2,10 @@
     opacity: 0;
     animation: fadeOut 5s; 
     z-index: 2;
-    pointer-events: none;
     position: relative;
 }
 
 #intro-canvas {
-    opacity: 1;
     width: 100vw;
     height: 150vh;
 }

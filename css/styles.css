@@ -31,10 +31,6 @@ p {
     line-height: 143%;
 }
 
-canvas {
-    z-index: -1;
-}
-
 article {
     margin: 20px auto;
     max-width: 55%;
