@@ -1,5 +1,5 @@
 //Adapted from https://pixijs.io/examples/#/masks/filter.js
-export function draw() {
+export function draw(imagePath = '/assets/star_chart.png') {
     const app = new PIXI.Application();
     // Inner radius of the circle
     const radius = 100;
@@ -8,7 +8,7 @@ export function draw() {
 
     document.getElementById("telescope").appendChild(app.view);
 
-    PIXI.Assets.load('/assets/star_chart.png').then((stars) => {
+    PIXI.Assets.load(imagePath).then((stars) => {
         const background = new PIXI.Sprite(stars);
         app.stage.addChild(background);
         background.width = app.screen.width;

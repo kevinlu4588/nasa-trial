@@ -1,3 +1,5 @@
+import * as Telescope from "./telescope.js";
+
 // GLOBALS -------------------------------------------------------------------------------
 
 // var applicationId = 'd9c326dc-833b-474f-b51a-f157d89954ce';
@@ -6,6 +8,7 @@
 const apiId = "f6db66df-5ad0-4c42-b153-060bc2bd2de0";
 const secret = "eaab42a1965d4ae799de1d87a7f98638d8c31a72132eb88cc07e106a73ff48ea622c469f90c7cb5f73b669de2fecdb886e19529dda03b632cd7a5d560e05dd37b6c407bc646e445d71e80b9cbad78360e2a3c7d3aeb47018cbfdf0b26b43c3bbe1cbcef979d6d683b4679bd2d3b9d0e2";
 const headers = {'Authorization': `Basic ${btoa(`${apiId}:${secret}`)}`};
+const url = "https://api.astronomyapi.com/api/v2/studio/star-chart";
 
 const constellations = [
     {"abbr": "and", "greekName": "Andromeda", "commonName": "the Chained Maiden"},
@@ -170,18 +173,18 @@ export function constellationListener() {
 
 // Star chart API
 export function fetchStarChart() {
-    const url = "https://api.astronomyapi.com/api/v2/studio/star-chart";
     const body = {
             "style": "navy",
             "observer": observer,
             "view": view
     }
 
-    console.log(body)
-
     // fetch(url, {method: "POST", headers, body: JSON.stringify(body)}).
     // then(response => response.json()).
     // then(function(data) { 
     //     console.log(data.data.imageUrl)
     // })
+
+    console.log(body)
+    Telescope.draw();
 }
