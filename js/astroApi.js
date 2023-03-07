@@ -1,3 +1,5 @@
+// GLOBALS -------------------------------------------------------------------------------
+
 // var applicationId = 'd9c326dc-833b-474f-b51a-f157d89954ce';
 // var applicationSecret = '8de6ffd9d55939a76d782dc6dfb19998a457ee836f6e89af0f4a21c865f1ee13c00135dba55d5b86ea2e4446a1ddaf844ef611deb0f3b00b813297d02f8e447f37cb745b24cb2939b45c8cbbcc6e98dc53bb380ef8b0800a5c1200d39dda017b15fcdfe7c1fe715cad76da2260947c1c';  
 
@@ -103,13 +105,21 @@ let view = {
     }
 }
 
-// global dispatch object -----------------------
+let observer = {
+    "latitude": 33.775867,
+    "longitude": -84.39733,
+    "date": updateDate()
+}
+
+// DISPATCH -------------------------------------------------------------------------------
 const dispatch = d3.dispatch("constellation-change");
 
 // dispatch event handlers
 dispatch.on("constellation-change", () => {
     fetchStarChart();
 });
+
+// FUNCTIONS -------------------------------------------------------------------------------
 
 // Automatically generate the options from data rather than hardcoding
 const returnConstOpions = () => {
@@ -162,11 +172,7 @@ function fetchStarChart() {
     const url = "https://api.astronomyapi.com/api/v2/studio/star-chart";
     const body = {
             "style": "navy",
-            "observer": {
-                "latitude": 33.775867,
-                "longitude": -84.39733,
-                "date": updateDate()
-            },
+            "observer": observer,
             "view": view
     }
 
@@ -181,5 +187,4 @@ function fetchStarChart() {
 
 returnConstOpions();
 constellationListener();
-
 fetchStarChart();
