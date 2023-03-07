@@ -121,32 +121,6 @@ dispatch.on("constellation-change", () => {
 
 // FUNCTIONS -------------------------------------------------------------------------------
 
-// Automatically generate the options from data rather than hardcoding
-const returnConstOpions = () => {
-
-    let opts = "";
-
-    for (let item of constellations) {
-        opts += `<option class="dropdown-option" value=${item.abbr}> ${item.commonName} (${item.greekName})</option>`;
-    }
-
-    document.getElementById("constellation").innerHTML = opts;
-};
-
-// Event listener for the constellation drop-down
-function constellationListener() {
-    d3.selectAll(".dropdown-option").on("click", function(d) {
-        view = {
-            "type": "constellation",
-            "parameters": {
-                "constellation": d3.select(this).property("value")
-            }
-        }
-
-        dispatch.call("constellation-change");
-    })
-}
-
 // Returns todays date formatted for the API
 function updateDate() {
 
@@ -167,8 +141,35 @@ function updateDate() {
     return date;
 }
 
+
+// Automatically generate the options from data rather than hardcoding
+export const returnConstOpions = () => {
+
+    let opts = "";
+
+    for (let item of constellations) {
+        opts += `<option class="dropdown-option" value=${item.abbr}> ${item.commonName} (${item.greekName})</option>`;
+    }
+
+    document.getElementById("constellation").innerHTML = opts;
+};
+
+// Event listener for the constellation drop-down
+export function constellationListener() {
+    d3.selectAll(".dropdown-option").on("click", function(d) {
+        view = {
+            "type": "constellation",
+            "parameters": {
+                "constellation": d3.select(this).property("value")
+            }
+        }
+
+        dispatch.call("constellation-change");
+    })
+}
+
 // Star chart API
-function fetchStarChart() {
+export function fetchStarChart() {
     const url = "https://api.astronomyapi.com/api/v2/studio/star-chart";
     const body = {
             "style": "navy",
@@ -184,7 +185,3 @@ function fetchStarChart() {
     //     console.log(data.data.imageUrl)
     // })
 }
-
-returnConstOpions();
-constellationListener();
-fetchStarChart();
