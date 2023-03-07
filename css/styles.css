@@ -81,7 +81,7 @@ canvas {
     z-index: 2;
     pointer-events: none;
     position:relative; 
-    height:200vh
+    height: 150vh;
 }
 
 @keyframes fadeOut {
