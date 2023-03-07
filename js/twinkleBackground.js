@@ -1,8 +1,7 @@
 let fr = 3;
-
-let data = []
-
+let data = [];
 let nTwinkle = 120;
+console.log("ran")
 
 function setup() {
     let c = createCanvas(displayWidth, displayHeight*1.5);
@@ -30,6 +29,7 @@ function setup() {
 
         data.push({"x": random(displayWidth), "y": random(displayHeight*1.5), "color": color, "radius": radius})
     }
+    console.log(data)
 }
 
 function draw() {
