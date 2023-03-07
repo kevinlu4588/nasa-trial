@@ -17,10 +17,9 @@ h1 {
     text-transform: uppercase;
     text-align: center;
     margin: 40px auto;
-    max-width: 55%;
     z-index: 1;
     position: absolute;
-    left: 50%;
+    left: 25%;
 }
 
 h3 {
