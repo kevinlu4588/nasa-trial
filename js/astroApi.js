@@ -1,5 +1,3 @@
-let dropdown;
-
 // var applicationId = 'd9c326dc-833b-474f-b51a-f157d89954ce';
 // var applicationSecret = '8de6ffd9d55939a76d782dc6dfb19998a457ee836f6e89af0f4a21c865f1ee13c00135dba55d5b86ea2e4446a1ddaf844ef611deb0f3b00b813297d02f8e447f37cb745b24cb2939b45c8cbbcc6e98dc53bb380ef8b0800a5c1200d39dda017b15fcdfe7c1fe715cad76da2260947c1c';  
 
@@ -98,6 +96,8 @@ const constellations = [
     {"abbr": "lac", "greekName": "Lacerta", "commonName": "the Lizard"}
 ];
 
+let dropdown = constellations[0].abbr;
+
 // Automatically generate the options from data rather than hardcoding
 const returnConstOpions = () => {
 
@@ -118,11 +118,30 @@ function constellationListener() {
     })
 }
 
-function fetchBodies() {
-    const url = "https://api.astronomyapi.com/api/v2/bodies";;
-    fetch(url, {headers}).
-    then(response => response.json()).
-    then(data => console.log(data));
+// function fetchBodies() {
+//     const url = "https://api.astronomyapi.com/api/v2/bodies";;
+//     fetch(url, {headers}).
+//     then(response => response.json()).
+//     then(data => console.log(data));
+// }
+
+function updateDate() {
+
+    let today = new Date();
+    let dd = today.getDate();
+    let mm = today.getMonth() + 1;
+    let yyyy = today.getFullYear();
+
+    if (mm.toString().length === 1) {
+        mm = `0${mm.toString()}`
+    }
+
+    if (dd.toString().length === 1) {
+        dd = `0${dd.toString()}`
+    }
+
+    let date = `${yyyy}-${mm}-${dd}`;
+    return date;
 }
 
 // Star chart API
@@ -133,26 +152,24 @@ function fetchStarChart() {
             "observer": {
                 "latitude": 33.775867,
                 "longitude": -84.39733,
-                "date": "2019-12-20"
+                "date": updateDate()
             },
             "view": {
                 "type": "constellation",
                 "parameters": {
-                "constellation": "ori"
+                    "constellation": dropdown
             }
         }
     }
+
     fetch(url, {method: "POST", headers, body: JSON.stringify(body)}).
     then(response => response.json()).
     then(function(data) { 
         console.log(data.data.imageUrl)
-        document.getElementById("star-chart").src = data.data.imageUrl;
     })
-    
 }
 
 returnConstOpions();
 constellationListener();
 
 // fetchStarChart();
-

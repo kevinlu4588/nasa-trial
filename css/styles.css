@@ -40,15 +40,6 @@ article {
     top: 15%;
 }
 
-#star-chart {
-    z-index: 10;
-    max-height: 80vh;
-}
-
-.img-container {
-    text-align: center;
-}
-
 canvas {
     border: 2px solid #050823;
     position: absolute;
