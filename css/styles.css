@@ -42,5 +42,8 @@ article {
     position: absolute;
     top: 0;
     left: 0;
+}
+
+#telescope canvas {
     border: 2px solid #050823;
 }

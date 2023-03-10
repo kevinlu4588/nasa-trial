@@ -5,6 +5,7 @@
     position: relative;
     height: 100vh;
     width: 100vw;
+    overflow: hidden;
 }
 
 #intro-canvas {
@@ -12,6 +13,7 @@
     height: 100%;
     z-index: 0;
     animation: fadeOut 5s;
+    overflow: hidden;
 }
 
 #intro-text {
@@ -20,7 +22,7 @@
     font-size: 40px;
     color:#EEEEEE;
     position: absolute;
-    left: 35%;
+    left: 25%;
     top: 35%;
     animation: fadeIn 3s;
 }
