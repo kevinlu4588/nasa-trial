@@ -6,8 +6,8 @@
 }
 
 #intro-canvas {
-    width: 100vw;
-    height: 150vh;
+    width: 100%;
+    /* height: 150vh; */
     z-index: 0;
     animation: fadeOut 5s;
 }
@@ -15,7 +15,7 @@
 #intro-text {
     z-index: 0;
     opacity: 0;
-    font-size: 70px;
+    font-size: 40px;
     color:#EEEEEE;
     position: absolute;
     left: 35%;
@@ -34,23 +34,6 @@
 
     100% {
         opacity: 0;
-    }
-}
-
-@keyframes fadeOutCanvas {
-    0% {
-        opacity: 1;
-        z-index: 101;
-    }
-
-    50% {
-        opacity: 1;
-        z-index: 101;
-    }
-
-    100% {
-        opacity: 0;
-        z-index: -100;
     }
 }
 

@@ -18,17 +18,17 @@
     border: 2px solid #A7C3FD;
 }
 
-#explore-body{
+#explore-body {
     z-index: 1;
     opacity: 1;
     animation: exploreIn 5s; 
-
 }
 
-#twinkle{
+#twinkle {
     z-index: -1;
-    position: relative;
-
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 @keyframes exploreIn {
