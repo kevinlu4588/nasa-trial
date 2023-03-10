@@ -26,7 +26,7 @@ function setup() {
             radius = random(2);
         }
 
-        data.push({"x": random(displayWidth), "y": random(displayHeight*1.5), "color": color, "radius": radius})
+        data.push({"x": random(displayWidth), "y": random(displayHeight*1.5), "color": color, "radius": radius});
     }
 }
 
@@ -39,8 +39,7 @@ function draw() {
 
             data[i].x = random(displayWidth);
             data[i].y = random(displayHeight);
-            data[i].radius = random(6)
-            // data.push({"x": random(displayWidth), "y": random(displayHeight), "color": "#FFFFFF", "radius": random(2)})
+            data[i].radius = random(6);
         }
         stroke(data[i].color);
         ellipse(data[i].x, data[i].y, data[i].radius, data[i].radius)

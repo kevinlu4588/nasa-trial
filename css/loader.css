@@ -1,4 +1,9 @@
-/* creating css loader */
+/* Adapted from https://dev.to/vaishnavs/displaying-loading-animation-on-fetch-api-calls-1e5m */
+
+.telescope-container {
+    width: 800px;
+    height: 600px;
+}
 
 #loading {
     width: 5rem;
@@ -10,9 +15,11 @@
     visibility: hidden;
     animation: spin 1s infinite linear;
 }
+
 #loading.display {
     visibility: visible;
 }
+
 @keyframes spin {
     from {
         transform: rotate(0deg);
