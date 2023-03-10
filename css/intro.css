@@ -1,24 +1,25 @@
-.intro {
+#intro-div {
     opacity: 0;
     animation: fadeOut 5s; 
-    z-index: 102;
+    z-index: 0;
     position: relative;
 }
 
 #intro-canvas {
     width: 100vw;
     height: 150vh;
-    z-index: -100;
+    z-index: 0;
     animation: fadeOut 5s;
 }
 
 #intro-text {
+    z-index: 0;
     opacity: 0;
     font-size: 70px;
     color:#EEEEEE;
     position: absolute;
-    left: 25%;
-    top: 25%;
+    left: 35%;
+    top: 35%;
     animation: fadeIn 3s;
 }
 

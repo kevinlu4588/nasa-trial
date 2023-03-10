@@ -37,8 +37,31 @@
          <h1 id="intro-text">Explore The Stars</h1>
       </div> -->
       <body>
-        <div id="twinkle"></div>
+         <div style="position:relative; height:200vh;" id = "intro-div">
+            <div style="position:absolute; z-index: index 2; top:0; left:0; width:100%; height:60%;">
+               <canvas id="canvas3" style="width:100%; height:100%;"></canvas>
+                 <div id="intro-text">
+                     <p>
+                         Explore The Stars
+                     </p>
+                 </div>
+               <script>
+                  var warp = new WarpSpeed("canvas3",
+                     '{"speed":1,"targetSpeed": 20, "speedAdjFactor":0.03,"density":0.8,"shape":"circle","warpEffect":true,"warpEffectLength":2,"depthFade":true,"starSize":2,"backgroundColor":"#000000","starColor":"#FFFFFF"}'
+                  );
+                    //    console.log("warp" + console.log(JSON.stringify(warp, null, 4)));
+                     setTimeout(() => { 
+                     //clearCanvas();             
+                 }, 3000
+                     );
+               </script>
+            </div>
+         </div>
+
+         <div id="explore-body">
         <article>
+         <div id="twinkle"></div>
+
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.
               Curabitur tempor quis eros tempus lacinia. Nam bibendum pellentesque quam a convallis. Sed ut vulputate nisi. Integer in felis sed leo vestibulum venenatis. Suspendisse quis arcu sem. Aenean feugiat ex eu vestibulum vestibulum. Morbi a eleifend magna. Nam metus lacus, porttitor eu mauris a, blandit ultrices nibh. Mauris sit amet magna non ligula vestibulum eleifend. Nulla varius volutpat turpis sed lacinia. Nam eget mi in purus lobortis eleifend. Sed nec ante dictum sem condimentum ullamcorper quis venenatis nisi. Proin vitae facilisis nisi, ac posuere leo.
@@ -56,8 +79,9 @@
             </div>
             <div id="telescope"></div>
          </article>
+      </div>
          <script src="./js/twinkleBackground.js"></script>
-         <!-- <script src="./js/warpSpeed.js"></script> -->
+          <script src="./js/warpSpeed.js"></script>
          <script src="./js/location.js"></script>
          <script src="main.js" type="module"></script>
    </body>

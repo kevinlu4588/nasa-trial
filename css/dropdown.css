@@ -17,3 +17,30 @@
     background-color: #6a83b8;
     border: 2px solid #A7C3FD;
 }
+
+#explore-body{
+    z-index: 1;
+    opacity: 1;
+    animation: exploreIn 5s; 
+
+}
+
+#twinkle{
+    z-index: -1;
+    position: relative;
+
+}
+
+@keyframes exploreIn {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
