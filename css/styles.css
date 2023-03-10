@@ -48,8 +48,11 @@ article {
     border: 2px solid #050823;
 }
 
-
 @media (max-width: 400px) {
+
+    html, body {
+        font-size: 13px;
+    }
     article {
         margin: 10px auto;
         left: 15%;
@@ -57,13 +60,8 @@ article {
         top: 5%;
     }
 
-    p {
-        font-size: 13px;
-    }
-
     .user-inputs {
-        display: flex;
-        flex-direction: row;
+        display: block;
     }
 
     canvas {
@@ -72,5 +70,9 @@ article {
 
     h1 {
         font-size: 20px;
+    }
+
+    h3 {
+        font-size: 14px;
     }
 }
