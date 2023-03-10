@@ -1,19 +1,19 @@
+const app = new PIXI.Application();
+
+document.getElementById("telescope").appendChild(app.view);
+
 //Adapted from https://pixijs.io/examples/#/masks/filter.js
 export function draw(imagePath = '/assets/star_chart.png') {
-    const app = new PIXI.Application();
     // Inner radius of the circle
     const radius = 100;
     // The blur amount
     const blurSize = 5;
-
-    document.getElementById("telescope").appendChild(app.view);
 
     PIXI.Assets.load(imagePath).then((stars) => {
         const background = new PIXI.Sprite(stars);
         app.stage.addChild(background);
         background.width = app.screen.width;
         background.height = app.screen.height;
-        // background.beginFill("#02030E")
 
         const circle = new PIXI.Graphics()
             .beginFill(0xFF0000)
@@ -36,3 +36,11 @@ export function draw(imagePath = '/assets/star_chart.png') {
         });
     });
 }
+
+// export function updateImage(imagePath) {
+
+//     PIXI.Assets.load(imagePath).then((stars) => {
+//         const background = new PIXI.Sprite(stars);
+//         app.stage.addChild(background);
+//     });
+// }

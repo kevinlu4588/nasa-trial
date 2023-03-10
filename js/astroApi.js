@@ -114,6 +114,9 @@ let observer = {
     "date": updateDate()
 }
 
+// selecting loading div
+const loader = document.querySelector("#loading");
+
 // DISPATCH -------------------------------------------------------------------------------
 const dispatch = d3.dispatch("constellation-change");
 
@@ -123,6 +126,20 @@ dispatch.on("constellation-change", () => {
 });
 
 // FUNCTIONS -------------------------------------------------------------------------------
+
+// showing loading
+function displayLoading() {
+    loader.classList.add("display");
+    // to stop loading after some time
+    setTimeout(() => {
+        loader.classList.remove("display");
+    }, 5000);
+}
+
+// hiding loading 
+function hideLoading() {
+    loader.classList.remove("display");
+}
 
 // Returns todays date formatted for the API
 function updateDate() {
@@ -143,7 +160,6 @@ function updateDate() {
     let date = `${yyyy}-${mm}-${dd}`;
     return date;
 }
-
 
 // Automatically generate the options from data rather than hardcoding
 export const returnConstOpions = () => {
@@ -181,11 +197,13 @@ export function fetchStarChart() {
             "view": view
     }
 
+    displayLoading();
+
     fetch(url, {method: "POST", headers, body: JSON.stringify(body)}).
     then(response => response.json()).
     then(function(data) { 
         console.log(data.data.imageUrl)
-
+        hideLoading()
         Telescope.draw(data.data.imageUrl);
-    })
+    });
 }
