@@ -1,8 +1,11 @@
 /* Adapted from https://dev.to/vaishnavs/displaying-loading-animation-on-fetch-api-calls-1e5m */
 
 .telescope-container {
-    width: 800px;
-    height: 600px;
+    /* width: 800px;
+    height: 600px; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 #loading {
