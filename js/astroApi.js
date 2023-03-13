@@ -114,6 +114,8 @@ let observer = {
     "date": updateDate()
 }
 
+d3.select("#constellation-name").text(`${constellations[0].commonName} (${constellations[0].greekName})`)
+
 // selecting loading div
 const loader = document.querySelector("#loading");
 
