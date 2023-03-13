@@ -32,10 +32,14 @@ const loader = document.querySelector("#loading");
 const teleCanvas = document.querySelector("#telescope canvas");
 
 // DISPATCH -------------------------------------------------------------------------------
-const dispatch = d3.dispatch("constellation-change");
+const dispatch = d3.dispatch("constellation-change", "location-change");
 
 // dispatch event handlers
 dispatch.on("constellation-change", () => {
+    fetchStarChart();
+});
+
+dispatch.on("location-change", () => {
     fetchStarChart();
 });
 
@@ -78,7 +82,7 @@ function updateDate() {
 }
 
 // Automatically generate the options from data rather than hardcoding
-export const returnConstOpions = () => {
+export const returnConstOptions = () => {
 
     let opts = "";
 
@@ -87,6 +91,17 @@ export const returnConstOpions = () => {
     }
 
     document.getElementById("constellation").innerHTML = opts;
+};
+
+export const returnCityOptions = () => {
+
+    let opts = "";
+
+    for (let item of cities) {
+        opts += `<option class="dropdown-option" value=${item.city_ascii}> ${item.state_name}</option>`;
+    }
+
+    document.getElementById("city").innerHTML = opts;
 };
 
 // Event listener for the constellation drop-down

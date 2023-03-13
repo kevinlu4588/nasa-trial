@@ -3,7 +3,7 @@ import * as Telescope from "./js/telescope.js";
 
 Telescope.draw();
 
-Astro.returnConstOpions();
+Astro.returnConstOptions();
+Astro.returnCityOptions();
 Astro.constellationListener();
 Astro.fetchStarChart();
-
