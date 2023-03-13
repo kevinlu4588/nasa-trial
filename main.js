@@ -8,4 +8,5 @@ Helper.returnCityOptions();
 Telescope.draw();
 
 Astro.constellationListener();
+Astro.cityListener();
 Astro.fetchStarChart();

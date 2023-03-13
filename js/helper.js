@@ -7,7 +7,7 @@ export const returnConstOptions = () => {
     let opts = "";
 
     for (let item of constellations) {
-        opts += `<option class="dropdown-option" value=${item.abbr}> ${item.commonName}</option>`;
+        opts += `<option class="constellation-dropdown-option" value=${item.abbr}> ${item.commonName}</option>`;
     }
 
     document.getElementById("constellation").innerHTML = opts;
@@ -19,7 +19,7 @@ export const returnCityOptions = () => {
     let opts = "";
 
     for (let item of cities) {
-        opts += `<option class="dropdown-option" value=${item.city_ascii}> ${item.state_name}</option>`;
+        opts += `<option class="city-dropdown-option" value=${item.city_ascii}> ${item.city_ascii}, ${item.state_name}</option>`;
     }
 
     document.getElementById("city").innerHTML = opts;

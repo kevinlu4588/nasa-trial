@@ -33,14 +33,14 @@ const loader = document.querySelector("#loading");
 const teleCanvas = document.querySelector("#telescope canvas");
 
 // DISPATCH -------------------------------------------------------------------------------
-const dispatch = d3.dispatch("constellation-change", "location-change");
+const dispatch = d3.dispatch("constellation-change", "city-change");
 
 // dispatch event handlers
 dispatch.on("constellation-change", () => {
     fetchStarChart();
 });
 
-dispatch.on("location-change", () => {
+dispatch.on("city-change", () => {
     fetchStarChart();
 });
 
@@ -64,7 +64,7 @@ function hideLoading() {
 
 // Event listener for the constellation drop-down
 export function constellationListener() {
-    d3.selectAll(".dropdown-option").on("click", function(d) {
+    d3.selectAll(".constellation-dropdown-option").on("click", function(d) {
         view = {
             "type": "constellation",
             "parameters": {
@@ -73,6 +73,19 @@ export function constellationListener() {
         }
 
         dispatch.call("constellation-change");
+    })
+}
+
+// Event listener for the constellation drop-down
+export function cityListener() {
+    d3.selectAll(".city-dropdown-option").on("click", function(d) {
+
+        let city = cities.find(d => d.city_ascii === d3.select(this).property("value"));
+
+        observer.latitude = city.lat;
+        observer.longitude = city.lng;
+
+        dispatch.call("city-change");
     })
 }
 
