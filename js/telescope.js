@@ -24,9 +24,11 @@ export function draw(imagePath = '/assets/star_chart.png') {
         const bounds = new PIXI.Circle(0, 0, (radius + blurSize) * 2, (radius + blurSize) * 2);
         const texture = app.renderer.generateTexture(circle, PIXI.SCALE_MODES.NEAREST, 1, bounds);
         const focus = new PIXI.Sprite(texture);
+        background.mask = focus;
 
         app.stage.addChild(focus);
-        background.mask = focus;
+        focus.position.x = background.width/3;
+        focus.position.y= background.height/3;
 
         app.stage.interactive = true;
         app.stage.hitArea = app.screen;
