@@ -1,4 +1,5 @@
 import * as Telescope from "./telescope.js";
+import { updateDate} from "./helper.js";
 import { cities } from "../data/cities.js";
 import { constellations } from "../data/constellations.js";
 
@@ -61,49 +62,6 @@ function hideLoading() {
     loader.classList.remove("display");
 }
 
-// Returns todays date formatted for the API
-function updateDate() {
-
-    let today = new Date();
-    let dd = today.getDate();
-    let mm = today.getMonth() + 1;
-    let yyyy = today.getFullYear();
-
-    if (mm.toString().length === 1) {
-        mm = `0${mm.toString()}`
-    }
-
-    if (dd.toString().length === 1) {
-        dd = `0${dd.toString()}`
-    }
-
-    let date = `${yyyy}-${mm}-${dd}`;
-    return date;
-}
-
-// Automatically generate the options from data rather than hardcoding
-export const returnConstOptions = () => {
-
-    let opts = "";
-
-    for (let item of constellations) {
-        opts += `<option class="dropdown-option" value=${item.abbr}> ${item.commonName}</option>`;
-    }
-
-    document.getElementById("constellation").innerHTML = opts;
-};
-
-export const returnCityOptions = () => {
-
-    let opts = "";
-
-    for (let item of cities) {
-        opts += `<option class="dropdown-option" value=${item.city_ascii}> ${item.state_name}</option>`;
-    }
-
-    document.getElementById("city").innerHTML = opts;
-};
-
 // Event listener for the constellation drop-down
 export function constellationListener() {
     d3.selectAll(".dropdown-option").on("click", function(d) {
@@ -119,8 +77,6 @@ export function constellationListener() {
 }
 
 // Star chart API
-
-//TODO: PNG is SLOW TO LOAD ADD A SPINNER
 export function fetchStarChart() {
     const body = {
             "style": "navy",
