@@ -82,6 +82,10 @@ article {
         display: block;
     }
 
+    .container {
+        margin-bottom: 1rem;
+    }
+
     canvas {
         width: 100%;
     }
