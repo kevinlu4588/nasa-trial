@@ -118,6 +118,7 @@ d3.select("#constellation-name").text(`${constellations[0].commonName.toLowerCas
 
 // selecting loading div
 const loader = document.querySelector("#loading");
+const teleCanvas = document.querySelector("#telescope canvas");
 
 // DISPATCH -------------------------------------------------------------------------------
 const dispatch = d3.dispatch("constellation-change");
@@ -132,10 +133,12 @@ dispatch.on("constellation-change", () => {
 // showing loading
 function displayLoading() {
     loader.classList.add("display");
+    teleCanvas.classList.add("reduce-opacity");
     // to stop loading after some time
     setTimeout(() => {
         loader.classList.remove("display");
-    }, 5000);
+        teleCanvas.classList.remove("reduce-opacity");
+    }, 7000);
 }
 
 // hiding loading 
