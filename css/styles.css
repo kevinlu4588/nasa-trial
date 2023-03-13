@@ -18,6 +18,7 @@ h2 {
     font-size: 15px;
     font-variant: small-caps;
     color: rgb(230, 230, 230);
+    margin: 0;
 }
 
 h3 {
@@ -62,6 +63,7 @@ article {
 
 .container {
     border: 1px solid #111966;
+    background-color: rgb(7, 11, 50);
     padding: 1rem;
     margin-right: 1rem;
 } 
