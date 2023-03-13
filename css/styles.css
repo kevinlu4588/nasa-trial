@@ -37,11 +37,10 @@ p {
 }
 
 article {
-    margin: 20px auto;
     max-width: 55%;
     z-index: 100;
     position: absolute;
-    left: 25%;
+    left: 23%;
     top: 10%;
 }
 
@@ -59,14 +58,27 @@ article {
 
 #telescope canvas {
     border: 2px solid #111966;
-}
+    max-width: 625px;
+}   
 
 .container {
     border: 1px solid #111966;
     background-color: rgb(7, 11, 50);
     padding: 1rem;
     margin-right: 1rem;
-} 
+    margin-bottom: 1rem;
+}
+
+.telescope-container {
+    display: grid;
+    grid-template-columns: minmax(150px, 25%) 1fr;
+}
+
+.user-inputs {
+    display: flex;
+    flex-direction: column;
+    z-index: 200;
+}
 
 @media (max-width: 400px) {
 
@@ -80,13 +92,13 @@ article {
         top: 5%;
     }
 
-    .user-inputs {
+    /* .user-inputs {
         display: block;
-    }
+    } */
 
-    .container {
+    /* .container {
         margin-bottom: 1rem;
-    }
+    } */
 
     canvas {
         width: 100%;

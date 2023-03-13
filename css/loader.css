@@ -1,11 +1,10 @@
 /* Adapted from https://dev.to/vaishnavs/displaying-loading-animation-on-fetch-api-calls-1e5m */
 
-.telescope-container {
-    /* width: 800px;
-    height: 600px; */
+.telescope-image {
     width: 100%;
     display: flex;
     justify-content: center;
+    position: absolute;
 }
 
 #loading {
@@ -17,6 +16,9 @@
     margin: auto;
     visibility: hidden;
     animation: spin 1s infinite linear;
+    position: relative;
+    left: 50%;
+    top: 50%;
 }
 
 #loading.display {

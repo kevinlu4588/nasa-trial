@@ -169,7 +169,7 @@ export const returnConstOpions = () => {
     let opts = "";
 
     for (let item of constellations) {
-        opts += `<option class="dropdown-option" value=${item.abbr}> ${item.commonName} (${item.greekName})</option>`;
+        opts += `<option class="dropdown-option" value=${item.abbr}> ${item.commonName}</option>`;
     }
 
     document.getElementById("constellation").innerHTML = opts;
