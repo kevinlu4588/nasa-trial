@@ -1,3 +1,5 @@
+import { updateDate} from "./helper.js";
+
 let latitude, longitude;
 
 export function getLocation() {
@@ -10,7 +12,7 @@ export function showPosition(position) {
     latitude = position.coords.latitude;
     longitude = position.coords.longitude;
 
-    const pos = {"latitude": latitude, "longitude": longitude};
+    const pos = {"latitude": latitude, "longitude": longitude, "date": updateDate()};
     console.log(pos)
     return pos;
 }
