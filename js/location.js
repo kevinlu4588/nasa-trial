@@ -1,12 +1,12 @@
 let latitude, longitude;
 
-function getLocation() {
+export function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showPosition);
   }
 }
 
-function showPosition(position) {
+export function showPosition(position) {
     latitude = position.coords.latitude;
     longitude = position.coords.longitude;
 
@@ -15,12 +15,10 @@ function showPosition(position) {
     return pos;
 }
 
-function returnLocation() {
+export function returnLocation() {
   if (document.readyState !== 'loading') { 
     setTimeout(getLocation, 0); 
   } else { 
     document.addEventListener('DOMContentLoaded', getLocation) 
   }
 }
-
-returnLocation();

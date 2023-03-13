@@ -2,6 +2,7 @@ import * as Telescope from "./telescope.js";
 import { updateDate} from "./helper.js";
 import { cities } from "../data/cities.js";
 import { constellations } from "../data/constellations.js";
+import * as Location from "./location.js";
 
 // GLOBALS -------------------------------------------------------------------------------
 
@@ -25,6 +26,8 @@ let observer = {
     "longitude": -84.39733,
     "date": updateDate()
 }
+
+Location.returnLocation();
 
 d3.select("#constellation-name").text(`${constellations[0].commonName.toLowerCase()} (${constellations[0].greekName.toLowerCase()})`)
 
