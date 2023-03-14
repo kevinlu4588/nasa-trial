@@ -102,9 +102,10 @@ article {
         top: 5%;
     }
 
-    /* .user-inputs {
-        display: block;
-    } */
+
+    .constellation-container{
+        
+    }
 
     /* .container {
         margin-bottom: 1rem;
@@ -121,4 +122,6 @@ article {
     h3 {
         font-size: 14px;
     }
+
+
 }

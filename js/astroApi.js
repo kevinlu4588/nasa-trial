@@ -67,7 +67,7 @@ function hideLoading() {
 
 // Event listener for the constellation drop-down
 export function constellationListener() {
-    d3.selectAll(".constellation-dropdown-option").on("click", function(d) {
+    d3.selectAll("#constellation").on("click", function(d) {
         view = {
             "type": "constellation",
             "parameters": {
@@ -81,7 +81,7 @@ export function constellationListener() {
 
 // Event listener for the constellation drop-down
 export function cityListener() {
-    d3.selectAll(".city-dropdown-option").on("click", function(d) {
+    d3.selectAll("#city").on("click", function(d) {
 
         let city = cities.find(d => d.city_ascii === d3.select(this).property("value"));
 
@@ -105,8 +105,7 @@ export function fetchStarChart() {
     fetch(url, {method: "POST", headers, body: JSON.stringify(body)}).
     then(response => response.json()).
     then(function(data) { 
-        console.log(data.data.imageUrl)
         hideLoading()
-        Telescope.draw(data.data.imageUrl);
+        Telescope.draw("https://cors.office.dataculturegroup.org/" + data.data.imageUrl);
     });
 }
