@@ -46,7 +46,7 @@ article {
 #explore-body {
     z-index: 1;
     opacity: 1;
-    animation: exploreIn 5s; 
+    animation: exploreIn 6s; 
 }
 
 #twinkle canvas {

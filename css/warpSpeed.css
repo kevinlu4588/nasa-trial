@@ -22,9 +22,9 @@
     font-size: 40px;
     color:#EEEEEE;
     position: absolute;
-    left: 25%;
+    left: 35%;
     top: 35%;
-    animation: fadeIn 3s;
+    animation: fadeIn 4s;
 }
 
 @keyframes fadeOut {
