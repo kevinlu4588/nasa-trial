@@ -2,7 +2,6 @@ import * as Telescope from "./telescope.js";
 import { updateDate} from "./helper.js";
 import { cities } from "../data/cities.js";
 import { constellations } from "../data/constellations.js";
-import * as Location from "./location.js";
 // GLOBALS -------------------------------------------------------------------------------
 
 // var applicationId = 'd9c326dc-833b-474f-b51a-f157d89954ce';
@@ -19,14 +18,7 @@ let view = {
         "constellation": constellations[0].abbr
     }
 }
-Location.returnLocation();
-
-//console.log("latitude" + latitude);
-let observer = {
-    "latitude": 33.775867,
-    "longitude": -84.39733,
-    "date": updateDate()
-}
+let firstCall = true;
 
 
 d3.select("#constellation-name").text(`${constellations[0].commonName.toLowerCase()} (${constellations[0].greekName.toLowerCase()})`)
@@ -90,21 +82,85 @@ function hideLoading() {
 
 }
 
+let latitude = 0;
+let longitude = 0;
+
+async function getLocation() {
+    if (navigator.geolocation) {
+        return new Promise((resolve) => {
+        navigator.geolocation.getCurrentPosition(showPosition);
+            resolve();
+          });
+    } else {
+      console.log("Geolocation is not supported by this browser.");
+    }
+  }
+  
+   function showPosition(position) {
+    latitude = position.coords.latitude;
+    longitude = position.coords.longitude;
+        displayLoading();
+        console.log(latitude);
+    let tempObserver = {
+        "latitude": 42.3404696
+        ,
+        "longitude": 42.3404696
+        ,
+        "date": updateDate()
+    }    
+    const tempBody = {
+        "style": "navy",
+        "observer": tempObserver,
+        "view": view
+}
+      fetch(url, {method: "POST", headers, tempBody: JSON.stringify(tempBody)}).
+        then(response => response.json()).
+        then(function(data) { 
+        hideLoading()
+        Telescope.draw("https://cors.office.dataculturegroup.org/" + data.data.imageUrl);
+    });
+    firstCall = false;
+  }
+
+async function getProcessedData() {
+    let v;
+    try {
+       
+      v =  await getLocation();
+      
+    } catch (e) {
+        console.log(e);
+    }
+    return v;
+  }
+
+
 
 // Star chart API
 export function fetchStarChart() {
-    const body = {
+    if(firstCall){
+    getLocation();
+    }
+    else{
+        console.log('other');
+        displayLoading();
+
+        let observer = {
+            "latitude": latitude,
+            "longitude": longitude,
+            "date": updateDate()
+        }    
+        const body = {
             "style": "navy",
             "observer": observer,
             "view": view
     }
-
-    displayLoading();
-
-    fetch(url, {method: "POST", headers, body: JSON.stringify(body)}).
-    then(response => response.json()).
-    then(function(data) { 
-        hideLoading()
-        Telescope.draw("https://cors.office.dataculturegroup.org/" + data.data.imageUrl);
-    });
+          fetch(url, {method: "POST", headers, body: JSON.stringify(body)}).
+            then(response => response.json()).
+            then(function(data) { 
+            hideLoading()
+            Telescope.draw("https://cors.office.dataculturegroup.org/" + data.data.imageUrl);
+        });
+    }
+    
 }
