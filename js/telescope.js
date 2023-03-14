@@ -3,7 +3,7 @@ const app = new PIXI.Application();
 document.getElementById("telescope").appendChild(app.view);
 
 //Adapted from https://pixijs.io/examples/#/masks/filter.js
-export function draw(imagePath = '/assets/star_chart.png') {
+export function draw(imagePath = 'nasa_trial/assets/star_chart.png') {
     // Inner radius of the circle
     const radius = 100;
     // The blur amount
