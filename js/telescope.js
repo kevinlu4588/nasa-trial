@@ -3,13 +3,13 @@ const app = new PIXI.Application();
 document.getElementById("telescope").appendChild(app.view);
 
 //Adapted from https://pixijs.io/examples/#/masks/filter.js
-export function draw(imagePath = 'nasa_trial/assets/star_chart.png') {
+export function draw(imagePath = 'https://widgets.astronomyapi.com/star-chart/generated/b111b8f44865f8d4efc686b4ce8904e3f98526b5f52b137d1fbf83cfdefe8db5.png') {
     // Inner radius of the circle
     const radius = 100;
     // The blur amount
     const blurSize = 5;
 
-    PIXI.Assets.load(imagePath).then((stars) => {
+    PIXI.Assets.load("https://cors.office.dataculturegroup.org/" + imagePath).then((stars) => {
         const background = new PIXI.Sprite(stars);
         app.stage.addChild(background);
         background.width = app.screen.width;
