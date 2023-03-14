@@ -85,7 +85,7 @@ article {
 
 .physical-telescope{
     position:relative;
-    top: 15vw;
+    top: 20vw;
     right:10vw;
 }
 
@@ -106,7 +106,7 @@ article {
     }
     #phys-image-tele{
         position: relative;
-        top:70%;
+        top:50%;
         width: 70px;
         height:auto;
         bottom: 10px;
