@@ -11,7 +11,8 @@ const apiId = "f6db66df-5ad0-4c42-b153-060bc2bd2de0";
 const secret = "eaab42a1965d4ae799de1d87a7f98638d8c31a72132eb88cc07e106a73ff48ea622c469f90c7cb5f73b669de2fecdb886e19529dda03b632cd7a5d560e05dd37b6c407bc646e445d71e80b9cbad78360e2a3c7d3aeb47018cbfdf0b26b43c3bbe1cbcef979d6d683b4679bd2d3b9d0e2";
 const headers = {'Authorization': `Basic ${btoa(`${apiId}:${secret}`)}`};
 const url = "https://api.astronomyapi.com/api/v2/studio/star-chart";
-
+let observer;
+let body;
 let view = {
     "type": "constellation",
     "parameters": {
@@ -44,12 +45,17 @@ dispatch.on("city-change", () => {
 
 // Event listener for the constellation drop-down
 export function constellationListener() {
-    d3.selectAll("#constellation").on("click", function(d) {
+    d3.selectAll("#constellation").on("change", function(d) {
         view = {
             "type": "constellation",
             "parameters": {
                 "constellation": d3.select(this).property("value")
             }
+        }
+        body = {
+            "style": "navy",
+            "observer": observer,
+            "view": view
         }
 
         dispatch.call("constellation-change");
@@ -58,12 +64,14 @@ export function constellationListener() {
 
 // Event listener for the constellation drop-down
 export function cityListener() {
-    d3.selectAll("#city").on("click", function(d) {
+    d3.selectAll("#city").on("change", function(d) {
 
         let city = cities.find(d => d.city_ascii === d3.select(this).property("value"));
-
-        observer.latitude = city.lat;
-        observer.longitude = city.lng;
+        observer = {
+            "latitude": city.lat,
+            "longitude": city.lng,
+            "date": updateDate()
+        }    
 
         dispatch.call("city-change");
     })
@@ -101,22 +109,23 @@ async function getLocation() {
     longitude = position.coords.longitude;
         displayLoading();
         console.log(latitude);
-    let tempObserver = {
-        "latitude": 42.3404696
-        ,
-        "longitude": 42.3404696
-        ,
-        "date": updateDate()
-    }    
-    const tempBody = {
+        
+        observer = {
+            "latitude": latitude,
+            "longitude": longitude,
+            "date": updateDate()
+        }    
+
+     body = {
         "style": "navy",
-        "observer": tempObserver,
+        "observer": observer,
         "view": view
-}
-      fetch(url, {method: "POST", headers, tempBody: JSON.stringify(tempBody)}).
+    }
+      fetch(url, {method: "POST", headers, body: JSON.stringify(body)}).
         then(response => response.json()).
         then(function(data) { 
         hideLoading()
+        console.log(data.data.imageUrl);
         Telescope.draw("https://cors.office.dataculturegroup.org/" + data.data.imageUrl);
     });
     firstCall = false;
@@ -142,23 +151,15 @@ export function fetchStarChart() {
     getLocation();
     }
     else{
+
         console.log('other');
         displayLoading();
-
-        let observer = {
-            "latitude": latitude,
-            "longitude": longitude,
-            "date": updateDate()
-        }    
-        const body = {
-            "style": "navy",
-            "observer": observer,
-            "view": view
-    }
           fetch(url, {method: "POST", headers, body: JSON.stringify(body)}).
             then(response => response.json()).
             then(function(data) { 
             hideLoading()
+            console.log(data.data.imageUrl);
+
             Telescope.draw("https://cors.office.dataculturegroup.org/" + data.data.imageUrl);
         });
     }
