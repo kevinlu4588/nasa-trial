@@ -3,7 +3,6 @@ import { updateDate} from "./helper.js";
 import { cities } from "../data/cities.js";
 import { constellations } from "../data/constellations.js";
 import * as Location from "./location.js";
-
 // GLOBALS -------------------------------------------------------------------------------
 
 // var applicationId = 'd9c326dc-833b-474f-b51a-f157d89954ce';
@@ -20,14 +19,15 @@ let view = {
         "constellation": constellations[0].abbr
     }
 }
+Location.returnLocation();
 
+//console.log("latitude" + latitude);
 let observer = {
     "latitude": 33.775867,
     "longitude": -84.39733,
     "date": updateDate()
 }
 
-Location.returnLocation();
 
 d3.select("#constellation-name").text(`${constellations[0].commonName.toLowerCase()} (${constellations[0].greekName.toLowerCase()})`)
 
@@ -49,21 +49,6 @@ dispatch.on("city-change", () => {
 
 // FUNCTIONS -------------------------------------------------------------------------------
 
-// showing loading
-function displayLoading() {
-    loader.classList.add("display");
-    teleCanvas.classList.add("reduce-opacity");
-    // to stop loading after some time
-    setTimeout(() => {
-        loader.classList.remove("display");
-        teleCanvas.classList.remove("reduce-opacity");
-    }, 7000);
-}
-
-// hiding loading 
-function hideLoading() {
-    loader.classList.remove("display");
-}
 
 // Event listener for the constellation drop-down
 export function constellationListener() {
@@ -91,6 +76,20 @@ export function cityListener() {
         dispatch.call("city-change");
     })
 }
+
+// showing loading
+function displayLoading() {
+    loader.classList.add("display");
+    teleCanvas.classList.add("reduce-opacity");
+}
+
+// hiding loading 
+function hideLoading() {
+    loader.classList.remove("display");
+    teleCanvas.classList.remove("reduce-opacity");
+
+}
+
 
 // Star chart API
 export function fetchStarChart() {

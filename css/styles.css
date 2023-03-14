@@ -96,15 +96,33 @@ article {
         font-size: 13px;
     }
     article {
-        margin: 10px auto;
+        margin: 10px;
         left: 15%;
         max-width: 70%;
         top: 5%;
     }
+    #phys-image-tele{
+        position: relative;
+        top:50%;
+        width: 70px;
+        height:auto;
+        bottom: 10px;
+    }
+    .telescope-image{
+        top: 60%;
+        right: 90%;
+        position: relative;
+        width: 200%;
+        height: auto;
+    }
 
-
-    .constellation-container{
-        
+    #constellation-container{
+        position:relative;
+    }
+    #location-container{
+        position: relative;
+        left: 100%;
+        bottom: 60%;
     }
 
     /* .container {
