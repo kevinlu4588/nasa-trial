@@ -21,7 +21,7 @@ h2 {
 }
 
 h3 {
-    font-size: 14px;
+    font-size: 20px;
     font-variant: small-caps;
     color: rgb(230, 230, 230);
     opacity: .7;
@@ -56,9 +56,13 @@ article {
 }
 
 #telescope canvas {
-    border: 2px solid #111966;
+    border: 6px solid #111966;
     max-width: 625px;
-}   
+    border-radius: 10px;
+    outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
+}
 
 .container {
     border: 1px solid #111966;
@@ -118,6 +122,10 @@ article {
     #constellation-container{
         position:relative;
     }
+
+
+
+
     #location-container{
         position: relative;
         left: 100%;
@@ -133,11 +141,17 @@ article {
     }
 
     h1 {
-        font-size: 20px;
+        font-size: 17px;
+    }
+    h2{
+        font-size: 17px;
     }
 
     h3 {
         font-size: 14px;
+    }
+    .dropdown{
+        font-size: 12px;
     }
 
 
