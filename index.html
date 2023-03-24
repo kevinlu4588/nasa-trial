@@ -1,72 +1,49 @@
 <!DOCTYPE html>
 <html>
-   <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="description" content="explore constellations near you with a digital telescope experience">
-      <meta name="keywords" content="space, constellation, stars">
-      <meta name="author" content="Joli Holmes & Kevin Lu">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <!-- TODO update title -->
-      <meta property="og:title" content="Explore The Stars" />
-      <meta property="og:type" content="article" />
-      <meta property="og:url" content="" />
-      <meta property="og:locale" content="en" />
-      <meta property="og:description" content="explore constellations near you with a digital telescope experience" />
-      <meta property="og:image" content="" />
-      <title>Explore The Stars</title>
-      <link rel="stylesheet" type="text/css" href="./css/dropdown.css">
-      <link rel="stylesheet" type="text/css" href="./css/warpSpeed.css">
-      <link rel="stylesheet" type="text/css" href="./css/loader.css">
-      <link rel="stylesheet" type="text/css" href="./css/styles.css">
-      <script src="https://unpkg.com/pixi.js@7.x/dist/pixi.min.js" type="text/javascript"></script>
-      <script src="https://d3js.org/d3.v7.min.js" charset="utf-8" type="text/javascript"></script>
-      <script src="https://cdn.jsdelivr.net/npm/p5@1.6.0/lib/p5.js" type="text/javascript"></script>
-      <script src="./lib/warpspeed.min.js"></script>
-   </head>
-   <body>
-      <div id="twinkle"></div>
-      <div id="intro-div">
-         <canvas id="intro-canvas"></canvas>
-         <div id="intro-text">
-            <h1>Explore The Stars</h1>
-         </div>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Scrollama: Sticky Side Example</title>
+    <meta name="description" content="Scrollama: Sticky Side Example" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/scrollama"></script>
+
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+
+    <script src="main.js"></script>
+
+    <section id='intro'>
+      <p class='intro__overline'>
+        <a href='https://github.com/russellgoldenberg/scrollama'>scrollama.js</a>
+      </p>
+      <h1 class='intro__hed'>Demo: Sticky Graphic</h1>
+      <p class='intro__dek'>
+        Start scrolling to see how it works.
+      </p>
+    </section>
+    <section id='scroll'>
+      <div class='scroll__graphic'>
+        <div class='chart'>
+          <p>0</p>
+        </div>
       </div>
-      <article id="explore-body">
-         <header>
-            <h1>Explore The Stars</h1>
-         </header>
-         <h2> The night sky has captivated the human imagination for thousands of years, and one of its most enduring features are the constellations.  Throughout history, these patterns of stars have been named by countless cultures, each with their own myths and legends.  Today, we can still gaze and marvel at the same stars that captivated our ancestors.  In this interactive piece, we invite you to explore some constellations through NASA’s lens by moving the ‘telescope focus’ around to see different stars within starcharts generated using AstronomyAPI.  
-            <br>
-            <br>
-            The constellation starmaps are generated using with your location in mind, but you can also view these constellations as seen from locations across U.S.
-         </h2>
-         </p>
-         <div class="telescope-container">
-            <div class="user-inputs">
-               <div class="container" id= "constellation-container">
-                  <h2><span id="constellation-name"></span></h2>
-                  <h3>select constellation</h3>
-                  <select class="dropdown" name="constellation" id="constellation"></select>
-               </div>
-               <div class="container" id= "location-container">
-                  <h2>star chart for <span id="location"></span></h2>
-                  <h3>select location</h3>
-                  <select class="dropdown" name="city" id="city"></select>
-               </div>
-            </div>
-            <div class="telescope-image">
-               <div id="loading"></div>
-               <div id="telescope"></div>
-            </div>
-            <div class = "physical-telescope">
-               <img src="assets/physical-telescope.png" id = "phys-image-tele">
-            </div>
-         </div>
-      </article>
-      <script src="./js/twinkleBackground.js"></script>
-      <script src="./js/warpSpeed.js"></script>
-      <script src="main.js" type="module"></script>
-   </body>
-   <footer></footer>
+      <div class='scroll__text'>
+        <div class='step' data-step='1'>
+          <p>STEP 1</p>
+        </div>
+        <div class='step' data-step='2'>
+          <p>STEP 2</p>
+        </div>
+        <div class='step' data-step='3'>
+          <p>STEP 3</p>
+        </div>
+        <div class='step' data-step='4'>
+          <p>STEP 4</p>
+        </div>
+      </div>
+    </section>
+    <section id='outro'></section>
+    <div class='debug'></div>
+    </head>
 </html>
